@@ -1,0 +1,60 @@
+SELECT AVG (SCOST) FROM SOFTWARE WHERE DEV_IN LIKE 'PASCAL';
+select name,floor(DATEDIFF(curdate(),dob)/365) as age from programmer;
+select name from studies where course='dap';
+select max(sold) from software;
+select dob,name from programmer where month(dob)=1;
+select min(ccost) from Studies;
+select count(course) from Studies where course='Pgdca';
+select sum(sold*scost) from software where dev_in='c';
+select * from software where name='Ramesh';
+select count(name) as noprogrammers from studies where splace='sabhari';
+-- 11---20-----
+select * from software where (sold*scost)>20000;
+select name,round(dcost/scost) from software where scost*sold;
+select max(scost) from software where dev_in='basic';
+select *from software where (sold*scost)>dcost;
+select count(title) as total from software where dev_in='dbase';
+select count(name) as splace_from_pragathi from studies where splace='Pragathi';
+select count(name) as no_of_programmers from studies where ccost>=5000 and ccost<=10000;
+select round(avg (ccost)) as averagecost from studies;
+select * from programmer where prof1='c' or prof2='c';
+select count(name) as programmers from programmer where prof1 in ('cobol' ,'pascal' ) or prof2 in ('cobol' ,'pascal' );
+
+
+-- 21---30------
+select count(name) as programmers from programmer where prof1 not in ('c','pascal') and prof2 not in ('c','pascal');
+select max(floor(DATEDIFF(CURDATE(),dob)/365)) as oldest_male from programmer where sex = 'M';
+select floor(avg ((datediff(curdate(),dob)/365))) as average_female from programmer where sex = 'F';
+select name, floor (datediff(curdate(),doj)/365) as experience from programmer order by name desc;
+select name as birthday_current_month from programmer where month(dob)=month(current_date());
+select count(name) female_prog from programmer where sex='f';
+select distinct prof1 languages from programmer where sex='m' union select distinct prof2 from programmer where sex='m';
+select avg (salary) as avgsal from programmer;
+select name from programmer where salary between 2000 and 4000;
+select * from programmer where prof1 not in ('clipper','cobol','pascal') and prof2 not in ('clipper','cobol','pascal');
+
+-- --31---40---
+
+
+select count(name) as Female_above_24 from programmer where sex='f' and (prof1='c' or prof2='c') and (datediff(curdate(),dob)/365) > 24;
+select name from programmer where week(dob) = week(curdate());
+select * from programmer where (datediff(curdate(),doj)/365)<1;
+select name from programmer where floor(datediff(curdate(),doj)/365)=2;
+select (dcost-(scost*sold)) as amount_to_be_recovered, title from software where (scost*sold)<dcost;
+select title software from software where sold=0;
+select title, scost as softcost from software where name='mary';
+select distinct splace from Studies;
+select distinct course from studies;
+select name from programmer where name like '%a%a%';
+
+-- 41----50----
+select name from programmer where length(name)=5;
+select name from programmer where floor(datediff(curdate(),doj)/365)<2 and sex='f' and (prof1='Cobol' or prof2='Cobol');
+select min(length(name)) as smallest_name from programmer;
+select avg(dcost) avgerage_decost from software where dev_in='cobol';
+select name, sex ,dob,doj from programmer;
+select name from programmer where last_day(dob) = dob;
+select salary from programmer where sex='m' and (prof1!='cobol' or prof2!='cobol');
+select title, scost, dcost, dcost -scost diff from software order by 4 desc;
+select name from programmer where month(dob)=month(doj);
+select title from software where title like '% %';
